@@ -8,7 +8,7 @@ router.get('/login', (req, res) => {
 
 // auth logout
 router.get('/logout', (req, res) => {
-    req.logout();
+    req.logout();//removes the cookie and passport does the rest
     res.redirect('/');
 });
 
