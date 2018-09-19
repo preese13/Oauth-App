@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 24 * 60 * 60 * 1000, //convert a day to miliseconds 24 hours in day * 60 minutes in hour * seconds in minute * miliseconds in second
     keys: [keys.session.cookieKey]
 }));
 
@@ -25,7 +25,6 @@ app.use(passport.session());
 
 // connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
-    console.log('connected to mongodb');
 });
 
 // set up routes
@@ -38,5 +37,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('app now listening for requests on port 3000');
 });
